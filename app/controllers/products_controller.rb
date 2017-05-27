@@ -60,7 +60,7 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+#controller code
   def search
     if params[:search].present?
       @products = Product.search(params[:search], load: false, page: params[:page], per_page: 20)
@@ -70,7 +70,7 @@ class ProductsController < ApplicationController
   end
 
   def autocomplete
-    render json: Product.search(params[:query], {
+    render json: Product.search(params[:search], {
       fields: ["name^5", "sku"],
       match: :word_start,
       limit: 10,

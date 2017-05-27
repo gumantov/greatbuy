@@ -25,6 +25,7 @@ development:
   <<: *default
   database: greatbuy_development
   pool: 5
+  timeout: 5000
   username: gustavo
   password: VMware1!
 
@@ -87,6 +88,10 @@ test:
 #
 production:
   <<: *default
-  database: greatbuy_production
-  username: greatbuy
+  encoding: unicode
+  database: compramedb
+  username: gustavo
+  pool: 5
+  timeout: 5000
   password: <%= ENV['GREATBUY_DATABASE_PASSWORD'] %>
+  socket: /Users/gustavomantovan/cloudsql/comprame-168801:us-central1:compramedb
