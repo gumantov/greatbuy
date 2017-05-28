@@ -5,9 +5,8 @@ runtime: ruby
 env_variables:
   SECRET_KEY_BASE: 14bb45d0d6c899eaf666455d408c27fdcfd7c0e0ae24d828c76ea9cdd884586e7a8b2b3e2740959835a722917ef3198d2cfca6947fce2b341f7f1156760d5545
   ELASTICSEARCH_URL: http://104.154.158.64:9200
-  GREATBUY_DATABASE_PASSWORD: VMware1!
-  SQLALCHEMY_DATABASE_URI: >-
-      mysql+pymysql://gustavo:VMware1@/DATABASE?unix_socket=/cloudsql/comprame-168801:us-central1:compramedb
+  GREATBUY_DATABASE_PASSWORD: VMware1
+
 
 beta_settings:
     cloud_sql_instances: comprame-168801:us-central1:compramedb

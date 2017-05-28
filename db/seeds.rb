@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+require 'json'
+
+file = File.read('/Users/gustavomantovan/open-data-set/products.json')
+product_hash = JSON.parse(file)
+
+product_hash.each do |i|
+  pro = Product.new
+  pro.name = i['name']
+  pro.sku = i['sku']
+  pro.kind = i['type']
+  pro.price = i['price']
+  pro.category = i['category']
+  pro.shipping = i['shipping']
+  pro.description = i['description']
+  pro.manufacturer = i['manufacturer']
+  pro.model = i['model']
+  pro.url = i['url']
+  pro.image = i['image']
+  pro.save
+end
