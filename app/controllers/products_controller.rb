@@ -70,13 +70,19 @@ class ProductsController < ApplicationController
   end
 
   def autocomplete
-    render json: Product.search(params[:search], {
+    render json: Product.search(params[:query], {
       fields: ["name^5", "sku"],
       match: :word_start,
       limit: 10,
       load: false,
       misspellings: {below: 5}
-    }).map(&:name)
+    }).map do |product|
+      { title: product.title, value: product.id }
+    end
+
+    # render json: Product.search(params[:query], autocomplete: false, limit: 10).map do |product|
+    #   { title: product.title, value: product.id }
+    # end
   end
 
   private

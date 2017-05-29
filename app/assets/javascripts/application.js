@@ -16,19 +16,3 @@
 //= require turbolinks
 //= require_tree .
 //= require typeahead.bundle
-
-
-var products = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.whitespace,
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    remote: {
-      url: '/products/autocomplete?search=%QUERY',
-      wildcard: '%QUERY'
-    }
-  });
-  $('#products_search').typeahead(null, {
-    source: products
-  });
-
-$(document).ready(ready);
-$(document).on('page:load', ready);
